@@ -5,4 +5,3 @@ for x in range(0, 100):
         print("{:02d}".format(x))
         break
     print("{:02d}, ".format(x), end='')
-
