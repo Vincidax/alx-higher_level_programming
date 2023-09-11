@@ -18,14 +18,36 @@ class BaseGeometry:
         Raises:
             TypeError: If value is not an integer.
             ValueError: If value is <= 0.
+            AttributeError: If an attribute is accessed improperly.
         """
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
+        elif value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+        elif hasattr(self, name):
+            raise AttributeError(
+                    "'{}' object has no attribute '{}'".format(
+                        type(self).__name__, name
+                    )
+            )
+
 
 class Rectangle(BaseGeometry):
-    def __init__(self, width, height):
-        self.__width = width
-        self.__height = height
+    """Represent a rectangle."""
 
+    def __init__(self, width, height):
+        """Initialize a new Rectangle.
+
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+        """
+        super().__init__()  # Call the constructor of the base class
+        self.__width = width
+        self.integer_validator("width", width)
+        self.__height = height
+        self.integer_validator("height", height)
+
+    def __str__(self):
+        """Return a string representation of the rectangle."""
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
