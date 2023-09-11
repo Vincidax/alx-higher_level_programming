@@ -1,7 +1,3 @@
-#!/usr/bin/python3
-"""Defines a Rectangle class inherited from class BaseGeometry."""
-
-
 class BaseGeometry:
     """Represent base geometry."""
 
@@ -26,9 +22,9 @@ class BaseGeometry:
             raise ValueError("{} must be greater than 0".format(name))
         elif hasattr(self, name):
             raise AttributeError(
-                    "'{}' object has no attribute '{}'".format(
-                        type(self).__name__, name
-                    )
+                "'{}' object has no attribute '{}'".format(
+                    type(self).__name__, name
+                )
             )
 
 
@@ -47,3 +43,12 @@ class Rectangle(BaseGeometry):
         self.integer_validator("width", width)
         self.__height = height
         self.integer_validator("height", height)
+
+    def area(self):
+        """Return the area of given width and height"""
+        return self.__width * self.__height
+
+    def __str__(self):
+        """Return a string representation of the rectangle."""
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
+
