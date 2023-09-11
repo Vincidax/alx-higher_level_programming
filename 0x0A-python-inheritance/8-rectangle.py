@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a base geometry class BaseGeometry."""
+"""Defines a Rectangle class inherited from class BaseGeometry."""
 
 
 class BaseGeometry:
@@ -21,5 +21,11 @@ class BaseGeometry:
         """
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
-        elif value <= 0:
+        if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+
+class Rectangle(BaseGeometry):
+    def __init__(self, width, height):
+        self.__width = width
+        self.__height = height
+
