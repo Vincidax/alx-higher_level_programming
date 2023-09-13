@@ -9,4 +9,6 @@ def class_to_json(obj):
     '''obj is an instance of a Class
     Prototype: def class_to_json(obj)'''
 
-    return json.dumps(dict(obj.__dict__))
+    result = obj.__dict__
+    return result
+
