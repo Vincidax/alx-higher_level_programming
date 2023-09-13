@@ -2,9 +2,6 @@
 '''function for serialization of an object'''
 
 
-import json
-
-
 def class_to_json(obj):
     """
     Serialize an instance of a class with serializable
