@@ -33,7 +33,7 @@ filename = "add_item.json"
 if os.path.exists(filename):
     my_list = load_from_json_file(filename)
 else:
-    my_list= []
+    my_list = []
 
 for arg in sys.argv[1:]:
     my_list.append(arg)
