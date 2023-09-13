@@ -2,8 +2,10 @@
 '''a function that writes an Object to a text file,
 using a JSON representation'''
 
+
 import sys
 import json
+import os
 
 
 def save_to_json_file(my_obj, filename):
@@ -26,11 +28,14 @@ def load_from_json_file(filename):
         return json.loads(json_file.read())
 
 
-'''Access command line arguments'''
-script_name = sys.argv[0]
-arguments = sys.argv[1:]
-add_list = list(arguments)
-'''load, add , save'''
 filename = "add_item.json"
-save_to_json_file(add_list, filename)
-load_from_json_file(filename)
+
+if os.path.exists(filename):
+    my_list = load_from_json_file(filename)
+else:
+    my_list= []
+
+for arg in sys.argv[1:]:
+    my_list.append(arg)
+
+save_to_json_file(my_list, filename)
