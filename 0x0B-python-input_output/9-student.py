@@ -2,9 +2,6 @@
 ''' a class with a method that retrieves data'''
 
 
-import json
-
-
 class Student:
     '''class with a method that retrieves data'''
     def __init__(self, first_name, last_name, age):
