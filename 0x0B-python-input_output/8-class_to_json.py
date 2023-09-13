@@ -21,9 +21,7 @@ def class_to_json(obj):
                     If any attribute is not serializable
                     (not of types list, dict, str, int, or bool).
     """
-    
     result = {}
     for key, value in obj.__dict__.items():
         result[key] = value
-        
     return result
