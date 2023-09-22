@@ -2,7 +2,6 @@
 
 from models.rectangle import Rectangle
 
-
 class Square(Rectangle):
     """This class deals with the properties of a square."""
 
@@ -12,18 +11,54 @@ class Square(Rectangle):
 
     def __str__(self):
         """Returns a string representation of the Square."""
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        return f"[Square] ({self.id}) {self.__x}/{self.__y} - {self.__size}"
 
+    # Private instance attribute for size
     @property
     def size(self):
         """Getter method for the size of the square."""
-        return self.width
+        return self.__size
 
     @size.setter
     def size(self, value):
         """Setter method for the size of the square."""
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        if value <= 0:
+            raise ValueError("size must be > 0")
+        self.__size = value
         self.width = value
         self.height = value
+
+    # Private instance attribute for x
+    @property
+    def x(self):
+        """Getter method for the x-coordinate of the square."""
+        return self.__x
+
+    @x.setter
+    def x(self, value):
+        """Setter method for the x-coordinate of the square."""
+        if not isinstance(value, int):
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
+        self.__x = value
+
+    # Private instance attribute for y
+    @property
+    def y(self):
+        """Getter method for the y-coordinate of the square."""
+        return self.__y
+
+    @y.setter
+    def y(self, value):
+        """Setter method for the y-coordinate of the square."""
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
+        self.__y = value
 
     def update(self, *args, **kwargs):
         """Update the attributes of the Square instance."""
