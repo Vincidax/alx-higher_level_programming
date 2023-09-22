@@ -69,9 +69,24 @@ class Rectangle(Base):
         return self.__height * self.__width
 
     def display(self):
-        """Print the Rectangle instance using # characters."""
+        """Print the Rectangle instance using # characters with x and y offset"""
+        for _ in range(self.__y):
+            print()
         for _ in range(self.__height):
-            print('#' * self.__width)
+            print(" " * self.__x + "#" * self.__width)
+
+    def update(self, *args):
+        """Update the attributes of the Rectangle instance."""
+        if len(args) >= 1:
+            self.id = args[0]
+        if len(args) >= 2:
+            self.width = args[1]
+        if len(args) >= 3:
+            self.height = args[2]
+        if len(args) >= 4:
+            self.x = args[3]
+        if len(args) >= 5:
+            self.y = args[4]
 
     def __str__(self):
         """Return a string representation of the Rectangle."""
