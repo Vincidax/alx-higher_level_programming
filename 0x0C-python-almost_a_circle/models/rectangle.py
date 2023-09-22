@@ -69,7 +69,7 @@ class Rectangle(Base):
         return self.__height * self.__width
 
     def display(self):
-        """Print the Rectangle instance using # characters with x and y offset"""
+        """Print the Rectangle using # characters with x and y offset"""
         for _ in range(self.__y):
             print()
         for _ in range(self.__height):
