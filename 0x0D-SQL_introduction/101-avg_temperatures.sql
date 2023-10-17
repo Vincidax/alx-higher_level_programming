@@ -1,9 +1,6 @@
--- Step 1: Import the table dump (assuming the file is named 'table_dump.sql')
--- USE hbtn_0c_0;
+-- Import in hbtn_0c_0 database this table dump temperatures.sql
+-- a script that displays the average temperature (Fahrenheit) by city ordered by temperature (descending).
 SOURCE /var/lib/mysql/temperatures.sql;
-
- 
--- Step 2: Calculate the average temperature by city and order by temperature (descending)
 SELECT city, AVG(value) AS avg_temp
 FROM temperatures
 GROUP BY city
