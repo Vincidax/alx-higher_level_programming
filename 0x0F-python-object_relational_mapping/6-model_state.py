@@ -36,4 +36,3 @@ if __name__ == "__main__":
 
     # Create all tables in the engine
     Base.metadata.create_all(engine)
-
