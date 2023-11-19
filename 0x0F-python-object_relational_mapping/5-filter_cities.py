@@ -8,7 +8,7 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost", user=sys.argv[1],
                          passwd=sys.argv[2], db=sys.argv[3], port=3306)
     cur = db.cursor()
-    stmt ="""
+    stmt = """
         SELECT cities.name
         FROM cities
         INNER JOIN states ON cities.state_id = states.id
@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     print(', '.join(city_names))
 
-    #for row in rows:
+    # for row in rows:
     #    print(row, end=', ')
     cur.close()
     db.close()
