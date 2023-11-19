@@ -28,11 +28,11 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
 
     # Query for State object with the given name
-    result_state = session.query(State).filter(State.name == state_name).first()
+    result_state = session.query(State).filter(
+            State.name == state_name).first()
 
     # Display the result
     if result_state:
         print(result_state.id)
     else:
         print("Not found")
-
