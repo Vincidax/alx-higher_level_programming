@@ -13,15 +13,19 @@ def fetch_url(url):
         bytes: The content retrieved from the URL.
     """
     with urllib.request.urlopen(url) as response:
-        return response.read()
+        return {
+            'type': type(response.read()),
+            'content': response.read(),
+            'utf8 content': response.read().decode('utf-8')
+        }
 
 
 if __name__ == "__main__":
     target_url = 'https://alx-intranet.hbtn.io/status'
 
-    body_content = fetch_url(target_url)
+    response_data = fetch_url(target_url)
 
     print("Body response:")
-    print("\t- type:", type(body_content))
-    print("\t- content:", body_content)
-    print("\t- utf8 content:", body_content.decode('utf-8'))
+    print("\t- type:", response_data.get('type'))
+    print("\t- content:", response_data.get('content'))
+    print("\t- utf8 content:", response_data.get('utf8 content'))
