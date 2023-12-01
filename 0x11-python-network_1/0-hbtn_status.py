@@ -13,12 +13,12 @@ def fetch_url(url):
         dict: A dictionary containing information about the fetched content.
     """
     with urllib.request.urlopen(url) as response:
-        content = response.read().decode('utf-8')
+        content = response.read()  # Read content as bytes
 
         return {
-            'type': str(type(content)),
+            'type': type(content),
             'content': content,
-            'utf8 content': content
+            'utf8 content': content.decode('utf-8')
         }
 
 
