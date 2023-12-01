@@ -10,13 +10,15 @@ def fetch_url(url):
         url (str): The URL to fetch content from.
 
     Returns:
-        bytes: The content retrieved from the URL.
+        dict: A dictionary containing information about the fetched content.
     """
     with urllib.request.urlopen(url) as response:
+        content = response.read().decode('utf-8')
+
         return {
-            'type': type(response.read()),
-            'content': response.read(),
-            'utf8 content': response.read().decode('utf-8')
+            'type': str(type(content)),
+            'content': content,
+            'utf8 content': content
         }
 
 
